@@ -19,7 +19,7 @@ surpriseBtn.addEventListener("click", function() {
 });
 
 // Contador de tempo do relacionamento
-const inicioRelacionamento = new Date("2024-05-11T19:00:00"); // Data do início
+const inicioRelacionamento = new Date("2024-05-11T00:00:00"); // Data do início
 
 function atualizarContador() {
   const agora = new Date();
