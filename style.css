@@ -1,153 +1,154 @@
 /* Configuração geral */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #111;
-    color: #fff;
-    text-align: center;
-    overflow: hidden; /* Impede o scroll da tela */
-    height: 100vh; /* Faz com que o corpo ocupe a altura total da tela */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  overflow: hidden; /* Impede o scroll da tela */
+  height: 100vh; /* Faz com que o corpo ocupe a altura total da tela */
 }
 
 /* Primeira página */
 .page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 /* Título */
 h1 {
-    font-size: 2em;
-    margin: 20px;
+  font-size: 2em;
+  margin: 20px;
 }
 
 /* Botão */
 button {
-    background-color: red;
-    color: white;
-    font-size: 1.5em;
-    padding: 15px 30px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-    font-weight: bold;
+  background-color: red;
+  color: white;
+  font-size: 1.5em;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
 }
 
 button:hover {
-    background-color: darkred;
+  background-color: darkred;
 }
 
 /* Segunda página */
 #page2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
-    min-height: 100vh;
-    position: relative; /* Permite manipulação de elementos sobre a foto */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
 }
 
 /* Efeito de fundo com marca d'água */
 .background-image {
-    position: fixed;  /* Agora a imagem será fixa em relação à tela */
-    top: 0;
-    left: 0;
-    width: 100%;  /* 100% da largura da tela */
-    height: 100%; /* 100% da altura da tela */
-    z-index: -1;
-    background-image: url('foto11'); /* Insira o nome do arquivo da foto11 aqui */
-    background-size: cover;  /* Faz a imagem cobrir toda a tela */
-    background-position: center center; /* Garante que a imagem fique centralizada */
-    background-repeat: no-repeat; /* Impede que a imagem se repita */
-    opacity: 0.3; /* Aplica o efeito de marca d'água */
+  position: fixed;  /* A imagem será fixa em relação à tela */
+  top: 0;
+  left: 0;
+  width: 100%;  /* 100% da largura da tela */
+  height: 100%; /* 100% da altura da tela */
+  z-index: -1;
+  background-image: url('foto11'); /* Insira o nome do arquivo da foto11 aqui */
+  background-size: cover;  /* Faz a imagem cobrir toda a tela */
+  background-position: center center; /* Garante que a imagem fique centralizada */
+  background-repeat: no-repeat; /* Impede que a imagem se repita */
+  background-attachment: fixed; /* Mantém a imagem fixa ao rolar */
+  opacity: 0.3; /* Aplica o efeito de marca d'água */
 }
 
 /* Títulos */
 .title {
-    font-family: 'Brush Script MT', cursive;
-    font-size: 5.5em;
-    font-weight: bold;
-    color: #e91e63;
-    margin: 50px;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 5.5em;
+  font-weight: bold;
+  color: #e91e63;
+  margin: 50px;
 }
 
 .subtitle {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #fff;
-    margin: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+  margin: 10px;
 }
 
 #contador {
-    font-size: 2em;
-    margin: 20px;
+  font-size: 2em;
+  margin: 20px;
 }
 
 /* Fotos */
 .photos {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .photo-item img {
-    width: 250px;  /* Aumentado o tamanho das fotos */
-    height: 250px; /* Aumentado o tamanho das fotos */
-    object-fit: cover;
-    border-radius: 10px;
+  width: 250px;  /* Aumentado o tamanho das fotos */
+  height: 250px; /* Aumentado o tamanho das fotos */
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .caption {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-top: 20px; /* Mantido o espaçamento entre imagem e legenda */
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 20px; /* Mantido o espaçamento entre imagem e legenda */
 }
 
 /* Mensagem */
 .message {
-    margin-top: 30px;
-    font-size: 1.5em;
-    max-width: 800px;
-    margin: 20px auto;
-    color: #fff;
-    text-align: center;
+  margin-top: 30px;
+  font-size: 1.5em;
+  max-width: 800px;
+  margin: 20px auto;
+  color: #fff;
+  text-align: center;
 }
 
 /* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
-    /* Ajuste para a tela menor (telas móveis) */
-    .photos {
-        flex-direction: column;
-        align-items: center;
-    }
+  /* Ajuste para a tela menor (telas móveis) */
+  .photos {
+      flex-direction: column;
+      align-items: center;
+  }
 
-    .photo-item img {
-        width: 80%; /* Aumenta a largura das imagens em dispositivos móveis */
-        height: auto; /* Permite que a altura se ajuste proporcionalmente */
-        margin-bottom: 20px; /* Espaçamento entre as imagens */
-    }
+  .photo-item img {
+      width: 80%; /* Aumenta a largura das imagens em dispositivos móveis */
+      height: auto; /* Permite que a altura se ajuste proporcionalmente */
+      margin-bottom: 20px; /* Espaçamento entre as imagens */
+  }
 
-    .title {
-        font-size: 3em; /* Ajuste para o título em telas móveis */
-    }
+  .title {
+      font-size: 3em; /* Ajuste para o título em telas móveis */
+  }
 
-    .subtitle {
-        font-size: 1.2em; /* Ajuste para a legenda do título */
-    }
+  .subtitle {
+      font-size: 1.2em; /* Ajuste para a legenda do título */
+  }
 
-    #contador {
-        font-size: 1.5em;
-    }
+  #contador {
+      font-size: 1.5em;
+  }
 
-    .message {
-        font-size: 1.2em;
-    }
+  .message {
+      font-size: 1.2em;
+  }
 }
