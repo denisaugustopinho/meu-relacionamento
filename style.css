@@ -1,121 +1,197 @@
-/* Configuração geral */
+/* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #111;
-    color: #fff;
     text-align: center;
-  }
-  
-  /* Primeira página */
-  .page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  /* Título */
-  h1 {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    margin: 50px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #e91e63;
+}
+
+#contador {
     font-size: 2em;
-    margin: 20px;
-  }
-  
-  /* Botão */
-  button {
-    background-color: red;
-    color: white;
+    margin-top: 20px;
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.surpresa-btn {
     font-size: 1.5em;
+    background-color: #e91e63;
+    color: white;
     padding: 15px 30px;
     border: none;
     cursor: pointer;
-    margin-top: 20px;
-    font-weight: bold;
-  }
-  
-  button:hover {
-    background-color: darkred;
-  }
-  
-  /* Segunda página */
-  #page2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
-    min-height: 100vh;
-  }
-  
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
-  
-  .background-image-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.3;
-  }
-  
-  /* Títulos */
-  .title {
-    font-family: 'Brush Script MT', cursive;
-    font-size: 5.5em;
-    font-weight: bold;
-    color: #e91e63;
-    margin: 50px;
-  }
-  
-  .subtitle {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #fff;
-    margin: 10px;
-  }
-  
-  #contador {
-    font-size: 2em;
-    margin: 20px;
-  }
-  
- /* Fotos */
-.photos {
+    border-radius: 5px;
+}
+
+.surpresa-btn:hover {
+    background-color: #c2185b;
+}
+
+/* Estilo para as imagens */
+.fotos-container {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .photo-item img {
-    width: 300px;  /* Aumentado o tamanho das fotos */
-    height: 300px; /* Aumentado o tamanho das fotos */
+    margin-top: 30px;
+}
+
+.fotos-container img {
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 10px;
-  }
-  
-  .caption {
+}
+
+/* Legendas das fotos */
+.foto-legenda {
     font-size: 1.2em;
     font-weight: bold;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-top: 20px; /* Mantido o espaçamento entre imagem e legenda */
-  }
-  
-  /* Mensagem */
-  .message {
-    margin-top: 30px;
+    margin-top: 10px;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Ajuste para a tela menor (telas móveis) */
+    .fotos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fotos-container img {
+        width: 80%; /* Aumenta a largura das imagens em dispositivos móveis */
+        height: auto; /* Permite que a altura se ajuste proporcionalmente */
+        margin-bottom: 20px; /* Espaçamento entre as imagens */
+    }
+
+    /* Ajusta o tamanho do título para telas menores */
+    h1 {
+        font-size: 2em;
+    }
+
+    /* Ajusta o tamanho da legenda */
+    .foto-legenda {
+        font-size: 1em;
+    }
+}
+
+/* Estilos para a página de fundo com a música e o botão surpresa */
+.surpresa-container {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.surpresa-titulo {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.surpresa-btn {
+    font-size: 2em;
+    padding: 20px 40px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.surpresa-btn:hover {
+    background-color: darkred;
+}
+
+/* Estilo para a página com o fundo de foto (marca d'água) */
+.surpresa-content {
+    background-image: url('foto11.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    padding: 40px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.surpresa-content h1 {
+    font-size: 3em;
+    font-family: 'Brush Script MT', cursive;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.surpresa-content .contador {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.surpresa-content .fotos-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.surpresa-content .fotos-container img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.surpresa-content .foto-legenda {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.surpresa-content .mensagem-final {
     font-size: 1.5em;
-    max-width: 800px;
-    margin: 20px auto;
-    color: #fff;
+    margin-top: 30px;
     text-align: center;
-  }
-  
+    font-style: italic;
+}
+
+/* Ajustes para telas menores (móveis) */
+@media (max-width: 768px) {
+    .surpresa-content .fotos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .surpresa-content .fotos-container img {
+        width: 80%; /* Reduz o tamanho das imagens em dispositivos móveis */
+        height: auto;
+    }
+
+    .surpresa-content h1 {
+        font-size: 2.5em; /* Reduz o tamanho do título para dispositivos móveis */
+    }
+
+    .surpresa-content .contador {
+        font-size: 2em; /* Reduz o tamanho do contador em telas pequenas */
+    }
+
+    .surpresa-content .mensagem-final {
+        font-size: 1.2em;
+    }
+}
