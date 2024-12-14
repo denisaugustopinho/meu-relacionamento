@@ -7,33 +7,44 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Primeira tela -->
-  <div id="primeira-tela">
-    <h1 class="titulo-principal">Uma simples lembrança para o grande amor da minha vida:</h1>
-    <button id="botao-surpresa">SURPRESA!!!</button>
+  <!-- Primeira página -->
+  <div id="page1" class="page">
+    <audio id="musica_inicial" autoplay>
+      <source src="musica_inicial.mp3" type="audio/mp3">
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+    <h1>Uma simples lembrança para o grande amor da minha vida:</h1>
+    <button id="surpriseBtn">SURPRESA!!!</button>
   </div>
 
-  <!-- Segunda tela -->
-  <div id="segunda-tela" style="display: none;">
-    <h1 class="titulo-cursivo">Denis e Thalizia</h1>
-    <h2>Juntos há:</h2>
+  <!-- Segunda página -->
+  <div id="page2" class="page" style="display:none;">
+    <div class="background-image">
+      <img src="foto11.jpg" class="background-image-img" />
+    </div>
+    <h2 class="title">Denis e Thalizia</h2>
+    <h3 class="subtitle">Juntos há:</h3>
     <div id="contador"></div>
-    <div class="galeria">
-      <div class="foto">
+
+    <!-- Fotos -->
+    <div class="photos">
+      <div class="photo-item">
         <img src="foto1.jpg" alt="Foto 1">
-        <p>Nosso primeiro encontro 💖</p>
+        <div class="caption">Entre risos e abraços, construímos memórias que serão eternas..</div>
       </div>
-      <div class="foto">
+      <div class="photo-item">
         <img src="foto4.jpg" alt="Foto 4">
-        <p>Momentos inesquecíveis 🌟</p>
+        <div class="caption">Cada instante ao seu lado é um presente que guardarei para sempre.</div>
       </div>
-      <div class="foto">
+      <div class="photo-item">
         <img src="foto6.jpg" alt="Foto 6">
-        <p>Para sempre em meu coração ❤️</p>
+        <div class="caption">Cada detalhe do nosso amor é registrado em nossas memórias.</div>
       </div>
     </div>
-    <div class="mensagem">
-      "Amor, cada instante ao seu lado é único. Você transforma minha vida com seu sorriso e sua doçura. Obrigado por ser o meu maior presente e razão para acreditar no amor verdadeiro. Te amo mais que tudo! 💕"
+
+    <!-- Mensagem final -->
+    <div class="message">
+        <p>Nosso amor é a mais linda história que já vivi. Não importa o tempo que passe, sempre vou estar ao seu lado, te amando mais a cada dia. Você é minha vida, meu tudo. Te amo do tamanho do universo!!! Você é tudo para mim. Cada dia ao seu lado é uma benção, e me sinto a pessoa mais sortuda do mundo por poder compartilhar minha vida com você. Estou vivendo a história de um amor eterno ao seu lado, e só você me faz sentir assim. Te amo mais a cada dia!</p>
     </div>
   </div>
 
