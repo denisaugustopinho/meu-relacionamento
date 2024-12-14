@@ -1,34 +1,25 @@
-// Selecionar elementos
-const botaoSurpresa = document.getElementById("botao-surpresa");
-const primeiraTela = document.getElementById("primeira-tela");
-const segundaTela = document.getElementById("segunda-tela");
-
-// Carregar músicas
-const musicaInicial = new Audio("musica_inicial.mp3");
+// Música inicial
+const musicaInicial = document.getElementById("musica_inicial");
 const musicaPosterior = new Audio("musica_posterior.mp3");
 
-// Tocar música inicial automaticamente ao carregar a página
-musicaInicial.loop = true;
-musicaInicial.play().catch(() => {
-  console.log("O navegador bloqueou a reprodução automática.");
-});
+// Botão de surpresa
+const surpriseBtn = document.getElementById("surpriseBtn");
+const page1 = document.getElementById("page1");
+const page2 = document.getElementById("page2");
 
-// Função para mudar para a segunda tela
-botaoSurpresa.addEventListener("click", () => {
-  // Parar música inicial
+// Ao clicar no botão "SURPRESA!!!"
+surpriseBtn.addEventListener("click", function() {
+  // Para a música inicial e toca a música posterior
   musicaInicial.pause();
-
-  // Tocar música posterior
-  musicaPosterior.loop = true;
   musicaPosterior.play();
 
-  // Mostrar segunda tela
-  primeiraTela.style.display = "none";
-  segundaTela.style.display = "flex";
+  // Muda para a segunda página
+  page1.style.display = "none";
+  page2.style.display = "block";
 });
 
-// Função para atualizar o contador de tempo de relacionamento
-const inicioRelacionamento = new Date("2024-05-11T12:00:00");
+// Contador de tempo do relacionamento
+const inicioRelacionamento = new Date("2024-05-11T19:00:00"); // Data do início
 
 function atualizarContador() {
   const agora = new Date();
@@ -42,11 +33,7 @@ function atualizarContador() {
 
   if (dias < 0) {
     meses -= 1;
-    const ultimoDiaMesAnterior = new Date(
-      agora.getFullYear(),
-      agora.getMonth(),
-      0
-    ).getDate();
+    const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
     dias += ultimoDiaMesAnterior;
   }
 
@@ -77,6 +64,6 @@ function atualizarContador() {
   document.getElementById("contador").innerText = mensagem;
 }
 
-// Atualizar contador a cada segundo
+// Atualizar o contador a cada segundo
 setInterval(atualizarContador, 1000);
 atualizarContador();
