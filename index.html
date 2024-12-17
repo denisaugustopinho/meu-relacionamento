@@ -42,6 +42,19 @@
             font-weight: bold; /* Negrito */
             text-align: center;
         }
+        /* Legenda da foto */
+        #legenda-foto {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-top: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 <body>
@@ -89,6 +102,9 @@
       <div class="slider-item"><img src="foto33.jpg" alt="Foto 33"><div class="caption">Te amo infinito</div></div>
     </div>
 
+    <!-- Legenda -->
+    <div id="legenda-foto"></div>
+
     <!-- Bolinhas de navegação -->
     <div class="slider-dots" id="slider-dots"></div>
 
@@ -102,6 +118,7 @@
   <script>
     const slides = document.querySelectorAll('.slider-item');
     const dotsContainer = document.getElementById('slider-dots');
+    const legenda = document.getElementById('legenda-foto');
     let currentSlide = 0;
 
     slides.forEach((_, index) => {
@@ -114,11 +131,22 @@
 
     const dots = document.querySelectorAll('.dot');
 
+    // Função para mostrar a legenda
+    function atualizarLegenda(index) {
+        const captionElement = slides[index].querySelector('.caption');
+        if (captionElement) {
+            legenda.innerHTML = captionElement.textContent; // Exibe o texto da legenda
+        } else {
+            legenda.innerHTML = ''; // Caso não tenha legenda
+        }
+    }
+
     function showSlide(index) {
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
         slides[index].classList.add('active');
         dots[index].classList.add('active');
+        atualizarLegenda(index); // Atualiza a legenda
     }
 
     function nextSlide() {
@@ -182,6 +210,7 @@
         document.getElementById('musica_inicial').pause();
         document.getElementById('musica_segunda_pagina').play();
         iniciarContador();
+        atualizarLegenda(currentSlide); // Exibe a legenda do primeiro slide
     });
 
     function iniciarContador() {
