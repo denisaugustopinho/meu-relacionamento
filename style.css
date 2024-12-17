@@ -60,7 +60,7 @@ button:hover {
   background-position: center; /* Centraliza a imagem */
   background-attachment: fixed; /* Mantém a imagem fixa */
   background-repeat: no-repeat; /* Evita repetição da imagem */
-  opacity: 0.5; /* Ajusta a opacidade da imagem para efeito de marca d'água */
+  opacity: 0.7; /* Ajusta a opacidade da imagem para efeito de marca d'água */
 }
 
 .title {
