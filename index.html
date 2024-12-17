@@ -52,7 +52,7 @@
       Seu navegador não suporta o elemento de áudio.
     </audio>
     <h1>Uma simples lembrança para o grande amor da minha vida:</h1>
-    <button id="surpriseBtn">SURPRESA!!!</button>
+    <button id="surpriseBtn" style="background-color: red; color: white;">SURPRESA!!!</button>
   </div>
 
   <!-- Segunda página -->
@@ -62,15 +62,14 @@
       Seu navegador não suporta o elemento de áudio.
     </audio>
     <div class="background-image">
-      <img src="foto11.jpg" class="background-image-img" />
+      <img src="foto11.jpg" alt="Fundo" class="background-image-img" />
     </div>
     <h2 class="title">Denis e Thalizia</h2>
     <h3 class="subtitle">Juntos há:</h3>
     <div id="contador"></div>
 
     <!-- Slider de Fotos -->
-    <div class="photo-slider">
-      <!-- Fotos adicionadas -->
+    <div class="photo-slider" id="photo-slider">
       <div class="slider-item active"><img src="foto1.jpg" alt="Foto 1"><div class="caption">Meu coração escolheu você</div></div>
       <div class="slider-item"><img src="foto4.jpg" alt="Foto 4"><div class="caption">Nossa jornada é cheia de cumplicidade</div></div>
       <div class="slider-item"><img src="foto6.jpg" alt="Foto 6"><div class="caption">Os melhores momentos são com você</div></div>
@@ -134,6 +133,24 @@
             currentSlide = parseInt(dot.dataset.index);
             showSlide(currentSlide);
         });
+    });
+
+    // Swipe para dispositivos móveis
+    const slider = document.getElementById('photo-slider');
+    let startX = 0;
+
+    slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) {
+            nextSlide();
+        } else if (startX - endX < -50) {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
     });
 
     document.getElementById('surpriseBtn').addEventListener('click', () => {
