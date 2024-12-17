@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surpresa</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos básicos */
+        .slider-item {
+            display: none;
+            transition: opacity 1s ease-in-out;
+        }
+        .slider-item.active {
+            display: block;
+        }
+
+        /* Bolinhas de navegação */
+        .slider-dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.6s ease;
+        }
+        .dot.active {
+            background-color: #333;
+        }
+
+        /* Contador */
+        #contador {
+            font-size: 1.5rem;
+            color: #fff; /* Texto branco */
+            margin: 20px 0;
+            font-weight: bold; /* Negrito */
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
   <!-- Primeira página -->
@@ -19,6 +57,10 @@
 
   <!-- Segunda página -->
   <div id="page2" class="page" style="display:none;">
+    <audio id="musica_segunda_pagina" loop>
+      <source src="musica_posterior.mp3" type="audio/mp3">
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
     <div class="background-image">
       <img src="foto11.jpg" class="background-image-img" />
     </div>
@@ -26,30 +68,113 @@
     <h3 class="subtitle">Juntos há:</h3>
     <div id="contador"></div>
 
-    <!-- Fotos -->
-    <div class="photos">
-      <div class="photo-item">
-        <img src="foto1.jpg" alt="Foto 1">
-        <div class="caption">Entre risos e abraços, construímos memórias que serão eternas..</div>
-      </div>
-      <div class="emoji" style="font-size: 4em;">❤️</div> <!-- Emoji entre as fotos -->
-      <div class="photo-item">
-        <img src="foto4.jpg" alt="Foto 4">
-        <div class="caption">Cada instante ao seu lado é um presente que guardarei para sempre.</div>
-      </div>
-      <div class="emoji" style="font-size: 4em;">❤️</div> <!-- Emoji entre as fotos -->
-      <div class="photo-item">
-        <img src="foto6.jpg" alt="Foto 6">
-        <div class="caption">Cada detalhe do nosso amor é registrado em nossas memórias.</div>
-      </div>
+    <!-- Slider de Fotos -->
+    <div class="photo-slider">
+      <!-- Fotos adicionadas -->
+      <div class="slider-item active"><img src="foto1.jpg" alt="Foto 1"><div class="caption">Meu coração escolheu você</div></div>
+      <div class="slider-item"><img src="foto4.jpg" alt="Foto 4"><div class="caption">Nossa jornada é cheia de cumplicidade</div></div>
+      <div class="slider-item"><img src="foto6.jpg" alt="Foto 6"><div class="caption">Os melhores momentos são com você</div></div>
+      <div class="slider-item"><img src="foto20.jpg" alt="Foto 20"><div class="caption">Cada dia ao seu lado é especial</div></div>
+      <div class="slider-item"><img src="foto21.jpg" alt="Foto 21"><div class="caption">Nossos sorrisos valem mais que mil palavras</div></div>
+      <div class="slider-item"><img src="foto22.jpg" alt="Foto 22"><div class="caption">Momentos simples, mas inesquecíveis</div></div>
+      <div class="slider-item"><img src="foto23.jpg" alt="Foto 23"><div class="caption">Você é minha paz</div></div>
+      <div class="slider-item"><img src="foto24.jpg" alt="Foto 24"><div class="caption">O amor cresce a cada instante</div></div>
+      <div class="slider-item"><img src="foto25.jpg" alt="Foto 25"><div class="caption">Ao seu lado tudo fica perfeito</div></div>
+      <div class="slider-item"><img src="foto26.jpg" alt="Foto 26"><div class="caption">Juntos somos invencíveis</div></div>
+      <div class="slider-item"><img src="foto27.jpg" alt="Foto 27"><div class="caption">Carinho, respeito e amor</div></div>
+      <div class="slider-item"><img src="foto28.jpg" alt="Foto 28"><div class="caption">Seu abraço é meu refúgio</div></div>
+      <div class="slider-item"><img src="foto29.jpg" alt="Foto 29"><div class="caption">Amor que nunca acaba</div></div>
+      <div class="slider-item"><img src="foto30.jpg" alt="Foto 30"><div class="caption">Sempre com você</div></div>
+      <div class="slider-item"><img src="foto31.jpg" alt="Foto 31"><div class="caption">O melhor presente é ter você</div></div>
+      <div class="slider-item"><img src="foto32.jpg" alt="Foto 32"><div class="caption">Gratidão por nossa história</div></div>
+      <div class="slider-item"><img src="foto33.jpg" alt="Foto 33"><div class="caption">Te amo infinito</div></div>
     </div>
+
+    <!-- Bolinhas de navegação -->
+    <div class="slider-dots" id="slider-dots"></div>
 
     <!-- Mensagem final -->
     <div class="message">
-        <p>Nosso amor é a mais linda história que já vivi. Não importa o tempo que passe, sempre vou estar ao seu lado, te amando mais a cada dia. Você é minha vida, meu tudo. Te amo do tamanho do universo!!! Você é tudo para mim. Cada dia ao seu lado é uma benção, e me sinto a pessoa mais sortuda do mundo por poder compartilhar minha vida com você. Estou vivendo a história de um amor eterno ao seu lado, e só você me faz sentir assim. Te amo mais a cada dia!</p>
+        <p>Meu amor!!! Você me ensinou a recomeçar, a confiar. Não me canso de te amar e ser amado por você. Ao seu lado, quero viver para sempre. Te amo Infinito♾️</p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- JavaScript -->
+  <script>
+    const slides = document.querySelectorAll('.slider-item');
+    const dotsContainer = document.getElementById('slider-dots');
+    let currentSlide = 0;
+
+    slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.dataset.index = index;
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 6000);
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            currentSlide = parseInt(dot.dataset.index);
+            showSlide(currentSlide);
+        });
+    });
+
+    document.getElementById('surpriseBtn').addEventListener('click', () => {
+        document.getElementById('page1').style.display = 'none';
+        document.getElementById('page2').style.display = 'block';
+        document.getElementById('musica_inicial').pause();
+        document.getElementById('musica_segunda_pagina').play();
+        iniciarContador();
+    });
+
+    function iniciarContador() {
+        const dataInicio = new Date('2024-05-11T00:00:00');
+        const contador = document.getElementById('contador');
+
+        function atualizarContador() {
+            const agora = new Date();
+            let anos = agora.getFullYear() - dataInicio.getFullYear();
+            let meses = agora.getMonth() - dataInicio.getMonth();
+            let dias = agora.getDate() - dataInicio.getDate();
+
+            if (dias < 0) {
+                meses--;
+                dias += new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+            }
+
+            if (meses < 0) {
+                anos--;
+                meses += 12;
+            }
+
+            const horas = agora.getHours();
+            const minutos = agora.getMinutes();
+            const segundos = agora.getSeconds();
+
+            contador.innerHTML = 
+                `${anos > 0 ? anos + ' anos, ' : ''}${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+        }
+
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+    }
+  </script>
 </body>
 </html>
