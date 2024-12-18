@@ -47,12 +47,6 @@ button:hover {
   min-height: 100vh;
 }
 
-/* Estilos gerais para a segunda página */
-#page2 {
-  position: relative;
-  overflow: hidden;
-}
-
 /* Marca d'água como fundo */
 .background-image {
   position: fixed;
@@ -152,4 +146,22 @@ button:hover {
   margin: 20px;
   font-size: 1.2em;
   color: #fff;
+}
+
+/* Ajustes específicos para iOS */
+@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+  #page2 .background {
+      position: absolute; /* Substitui o comportamento fixo apenas no iOS */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('foto11.jpg'); /* Imagem do fundo */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: scroll; /* Garante que o scroll funcione no iOS */
+      z-index: -1; /* Mantém o fundo atrás do conteúdo */
+      opacity: 0.1; /* Preserva a opacidade */
+  }
 }
