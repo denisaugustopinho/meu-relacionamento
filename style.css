@@ -165,3 +165,18 @@ button:hover {
       opacity: 0.1; /* Preserva a opacidade */
   }
 }
+
+/* Solução para remover a barra de rolagem horizontal no iOS */
+body, html {
+  overflow-x: hidden; /* Remove a rolagem horizontal */
+}
+
+/* Ajustes extras apenas para iOS */
+@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+  body {
+      overflow-x: hidden; /* Garante que a rolagem horizontal seja desativada no iOS */
+      position: relative;
+      max-width: 100vw; /* Força o conteúdo a não ultrapassar a largura da viewport */
+  }
+}
+
