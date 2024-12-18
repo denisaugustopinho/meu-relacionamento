@@ -47,36 +47,6 @@ button:hover {
   min-height: 100vh;
 }
 
-/* Fundo estático como marca d'água para a página 2 */
-#page2 {
-  position: relative;
-  overflow: hidden; /* Evita conteúdo "estourando" no iOS */
-}
-
-/* Novo div de fundo */
-#page2 .background {
-  position: fixed; /* Garante que o fundo seja fixo */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('foto11.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.1; /* Marca d'água */
-  z-index: -1; /* Coloca o fundo atrás do conteúdo */
-}
-
-/* Ajustes específicos para iOS */
-@supports (-webkit-touch-callout: none) {
-  #page2 .background {
-      position: absolute; /* Substitui fixed no iOS */
-      background-attachment: scroll; /* Corrige bugs de scroll */
-  }
-}
-
-
 /* Marca d'água como fundo */
 .background-image {
   position: fixed;
