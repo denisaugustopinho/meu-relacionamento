@@ -77,6 +77,7 @@ button:hover {
   align-items: center; /* Centraliza verticalmente */
   text-align: center; /* Centraliza o texto (garantia extra) */
   top: 50%; /* Move para o meio da tela verticalmente */
+  width: 100%; /* Evita que o texto ultrapasse a largura da tela */
  }
 
 /* Ajustes extras específicos para iOS */
