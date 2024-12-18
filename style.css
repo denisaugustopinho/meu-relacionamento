@@ -71,26 +71,6 @@ button:hover {
   margin: 50px;
 }
 
-/* Configuração padrão do título (Android, Desktop, etc.) */
-.title {
-  position: absolute;
-  top: 20%; /* Altura padrão */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  font-size: clamp(1.5rem, 5vw, 3rem); /* Fonte adaptativa */
-  max-width: 90%;
-  word-wrap: break-word;
-}
-
-/* Ajustes específicos para iOS */
-.ios .title {
-  top: 15%; /* Ajuste para iOS */
-}
-
-
-
-
 .subtitle {
   font-size: 1.5em;
   font-weight: bold;
@@ -167,36 +147,3 @@ button:hover {
   font-size: 1.2em;
   color: #fff;
 }
-
-/* Ajustes específicos para iOS */
-@supports (-webkit-touch-callout: none) and (not (translate: none)) {
-  #page2 .background {
-      position: absolute; /* Substitui o comportamento fixo apenas no iOS */
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('foto11.jpg'); /* Imagem do fundo */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: scroll; /* Garante que o scroll funcione no iOS */
-      z-index: -1; /* Mantém o fundo atrás do conteúdo */
-      opacity: 0.1; /* Preserva a opacidade */
-  }
-}
-
-/* Solução para remover a barra de rolagem horizontal no iOS */
-body, html {
-  overflow-x: hidden; /* Remove a rolagem horizontal */
-}
-
-/* Ajustes extras apenas para iOS */
-@supports (-webkit-touch-callout: none) and (not (translate: none)) {
-  body {
-      overflow-x: hidden; /* Garante que a rolagem horizontal seja desativada no iOS */
-      position: relative;
-      max-width: 100vw; /* Força o conteúdo a não ultrapassar a largura da viewport */
-  }
-}
-
