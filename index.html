@@ -71,7 +71,21 @@
         opacity: 0.1; /* Reduz a opacidade para efeito de marca d'água */
         z-index: -1; /* Mantém a imagem atrás do conteúdo */
         pointer-events: none; /* Garante que não interfere em cliques */
+
+        /* Adiciona suporte específico para iOS */
+        -webkit-background-size: cover; /* Ajusta o tamanho do fundo */
+        -webkit-transform: translate3d(0, 0, 0); /* Evita bugs de renderização */
+        -webkit-backface-visibility: hidden; /* Suaviza a transição em iOS */
     }
+
+    /* Ajuste específico para dispositivos iOS */
+    @supports (-webkit-touch-callout: none) {
+        #page2::before {
+            /* Garante compatibilidade máxima no iOS */
+            background-attachment: scroll; /* Substitui 'fixed' para evitar falhas */
+        }
+    }
+    
 
     </style>
 </head>
