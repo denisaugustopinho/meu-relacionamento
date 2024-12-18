@@ -71,14 +71,24 @@ button:hover {
   margin: 50px;
 }
 
-
-
-/* Ajustes extras específicos para iOS */
-@supports (-webkit-touch-callout: none) and (not (translate: none)) {
-  .title {
-      max-width: 90vw; /* Garante que o título não fique cortado em telas menores no iOS */
-  }
+/* Configuração padrão do título (Android, Desktop, etc.) */
+.title {
+  position: absolute;
+  top: 20%; /* Altura padrão */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: clamp(1.5rem, 5vw, 3rem); /* Fonte adaptativa */
+  max-width: 90%;
+  word-wrap: break-word;
 }
+
+/* Ajustes específicos para iOS */
+.ios .title {
+  top: 15%; /* Ajuste para iOS */
+}
+
+
 
 
 .subtitle {
